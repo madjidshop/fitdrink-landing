@@ -240,10 +240,21 @@
     });
 
     // Order form
-    document.getElementById("orderForm").addEventListener("submit", function(e){
+    const form = document.getElementById("orderForm");
+    form.addEventListener("submit", async function(e) {
         e.preventDefault();
-        alert("✅ تم إرسال طلبك بنجاح! سنقوم بالتواصل معك قريباً.");
-        this.reset();
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+            alert("✅ تم إرسال طلبك بنجاح! سنقوم بالتواصل معك قريباً.");
+            form.reset();
+        } else {
+            alert("❌ حدث خطأ أثناء الإرسال. حاول مرة أخرى.");
+        }
     });
 
     // Scroll to top button
