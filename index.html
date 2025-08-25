@@ -197,10 +197,10 @@
 
 <section class="cta">
     <h3>اطلب الآن</h3>
-    <form id="orderForm">
-        <input type="text" placeholder="اسمك الكامل" required>
-        <input type="tel" placeholder="رقم الهاتف" required>
-        <select required>
+    <form id="orderForm" action="https://formspree.io/f/xwpnejoo" method="POST">
+        <input type="text" name="name" placeholder="اسمك" required>
+        <input type="tel" name="phone" placeholder="رقم الهاتف" required>
+        <select name="quantity" required>
             <option value="">اختر الكمية</option>
             <option value="1">علبة واحدة</option>
             <option value="6">6 علب</option>
